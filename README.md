@@ -14,3 +14,8 @@ docker-compose logs -f --tail=30 mtproxy
 ```
 
 Check [docker hub](https://hub.docker.com/r/telegrammessenger/proxy/) for reference.
+
+```
+# check stats
+curl http://127.0.0.1:8080/stats
+```

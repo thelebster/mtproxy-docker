@@ -5,8 +5,11 @@ services:
     image: telegrammessenger/proxy:latest
     hostname: mtproxy
     container_name: mtproxy
+    network_mode: "host"
     environment:
       - SECRET=${SECRET}
+      - PORT=${PORT}
+      - HTTP_PORT=${HTTP_PORT}
     volumes:
       - ./config:/data
       - ./run.sh:/run.sh:ro
@@ -18,5 +21,5 @@ services:
         tag: mtproxy
     restart: always
     ports:
-      - ${PORT}:443
-      - ${PORT_STATS}:2398
+      - ${PORT}
+      - ${HTTP_PORT}

@@ -82,8 +82,8 @@ echo "[*] Final configuration:"
 I=1
 echo "$SECRET" | tr ',' '\n' | while read S; do
   echo "[*]   Secret $I: $S"
-  echo "[*]   tg:// link for secret $I auto configuration: tg://proxy?server=${IP}&port=443&secret=${S}"
-  echo "[*]   t.me link for secret $I: https://t.me/proxy?server=${IP}&port=443&secret=${S}"
+  echo "[*]   tg:// link for secret $I auto configuration: tg://proxy?server=${IP}&port=${PORT}&secret=${S}"
+  echo "[*]   t.me link for secret $I: https://t.me/proxy?server=${IP}&port=${PORT}&secret=${S}"
   I=$(($I+1))
 done
 
@@ -93,4 +93,4 @@ echo "[*]   Make sure to fix the links in case you run the proxy on a different 
 echo
 echo '[+] Starting proxy...'
 sleep 1
-exec /usr/local/bin/mtproto-proxy -p 2398 -H 443 --http-stats -M "$WORKERS" -C 60000 --aes-pwd /etc/telegram/hello-explorers-how-are-you-doing -u root $CONFIG --allow-skip-dh --nat-info "$INTERNAL_IP:$IP" $SECRET_CMD $TAG_CMD
+exec /usr/local/bin/mtproto-proxy -p $HTTP_PORT -H $PORT --http-stats -M "$WORKERS" -C 60000 --aes-pwd /etc/telegram/hello-explorers-how-are-you-doing -u root $CONFIG --allow-skip-dh --nat-info "$INTERNAL_IP:$IP" $SECRET_CMD $TAG_CMD
