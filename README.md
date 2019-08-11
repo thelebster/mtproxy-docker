@@ -19,3 +19,7 @@ Check [docker hub](https://hub.docker.com/r/telegrammessenger/proxy/) for refere
 # check stats
 curl http://127.0.0.1:8080/stats
 ```
+
+```
+ln -s nginx.conf /etc/nginx/sites-enabled/mproxy-stats
+```
