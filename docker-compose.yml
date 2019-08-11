@@ -9,6 +9,7 @@ services:
       - SECRET=${SECRET}
     volumes:
       - ./config:/data
+      - ./run.sh:/run.sh:ro
     logging:
       driver: json-file
       options:
@@ -18,3 +19,4 @@ services:
     restart: always
     ports:
       - ${PORT}:443
+      - ${PORT_STATS}:2398
