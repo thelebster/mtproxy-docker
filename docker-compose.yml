@@ -8,6 +8,7 @@ services:
     network_mode: "host"
     environment:
       - SECRET=${SECRET}
+      - TAG=${TAG}
       - PORT=${PORT}
       - HTTP_PORT=${HTTP_PORT}
     volumes:
